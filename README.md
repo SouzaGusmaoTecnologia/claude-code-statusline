@@ -5,13 +5,13 @@ com barras coloridas de **contexto**, **limite de 5 horas** e **limite de 7 dias
 limite mostrando **quando renova** e **quanto falta**.
 
 ```
-Opus 5 | meu-projeto | git: main *
+Opus 5 v2.1.231 | meu-projeto | git: main *
 Contexto [████░░░░░░] 46% 70k / 1M | Token 5h [██░░░░░░░░] 23% ↻ 19:01 (4h32m) | Token 7D [████░░░░░░] 41% ↻ 19/ago 09:58 (6d19h)
 ```
 
 ## O que aparece
 
-**Linha 1:** modelo em uso, pasta atual e estado do git (`branch ok` quando limpo, `branch *`
+**Linha 1:** modelo em uso, versão do Claude Code, pasta atual e estado do git (`branch ok` quando limpo, `branch *`
 quando há alterações).
 
 **Linha 2:** três medidores, cada um com barra de 10 blocos e percentual colorido:
@@ -78,6 +78,7 @@ Cores do percentual: verde abaixo de 50%, amarelo até 65%, laranja até 80%, ve
 $now = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
 $json = @{
   model = @{ display_name = 'Opus 5' }
+  version = '2.1.231'
   workspace = @{ current_dir = $PWD.Path }
   context_window = @{ remaining_percentage = 62.0; context_window_size = 200000; total_input_tokens = 78000; total_output_tokens = 4000 }
   rate_limits = @{

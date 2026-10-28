@@ -321,6 +321,14 @@ try {
 $model = $data.model.display_name
 if ([string]::IsNullOrWhiteSpace($model)) { $model = 'model?' }
 
+# Versao do CLI: so aparece no banner de abertura, que rola para fora da tela
+$cliVersion = $data.version
+if ([string]::IsNullOrWhiteSpace($cliVersion)) {
+    $modelPart = $model
+} else {
+    $modelPart = "$model v$cliVersion"
+}
+
 $dir = $data.workspace.current_dir
 if ([string]::IsNullOrWhiteSpace($dir)) { $dir = $data.cwd }
 if ([string]::IsNullOrWhiteSpace($dir)) { $dir = 'unknown' }
@@ -367,7 +375,7 @@ try {
     $gitText = 'git: n/a'
 }
 
-$line1 = "$model | $folder | $gitText"
+$line1 = "$modelPart | $folder | $gitText"
 
 $ctxPart = New-ContextDisplay -ContextWindow $data.context_window
 $rl5Part = if ($null -eq $rl5Pct) { New-UnavailableDisplay } else { (New-PrettyUsageDisplay -Percent $rl5Pct) + (New-ResetDisplay -ResetsAt $rl5Reset) }
