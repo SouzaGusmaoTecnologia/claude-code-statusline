@@ -5,7 +5,7 @@ com barras coloridas de **contexto**, **limite de 5 horas** e **limite de 7 dias
 limite mostrando **quando renova** e **quanto falta**.
 
 ```
-Opus 5 v2.1.231 | meu-projeto | git: main * | [·ᗧ··ᗣᗣᗣᗣ······]
+Opus 5 v2.1.231 | meu-projeto | git: main *
 Contexto [████░░░░░░] 46% 70k / 1M | Token 5h [██░░░░░░░░] 23% ↻ 19:01 (4h32m) | Token 7D [████░░░░░░] 41% ↻ 19/ago 09:58 (6d19h)
 ```
 
@@ -13,18 +13,6 @@ Contexto [████░░░░░░] 46% 70k / 1M | Token 5h [██░░�
 
 **Linha 1:** modelo em uso, versão do Claude Code, pasta atual e estado do git (`branch ok` quando limpo, `branch *`
 quando há alterações).
-
-No fim da linha 1 roda um **Pac-Man**: ele persegue os fantasmas assustados até a borda, come todos
-(sobram só os olhos), os olhos voltam e vestem a roupa de novo, os fantasmas passam a caçar o Pac-Man
-até ele alcançar a pílula na borda oposta — e o jogo vira, em loop, alternando o sentido da pista.
-
-A animação avança **um quadro por redesenho da status line**, não por tempo: o Claude Code só redesenha
-quando a sessão muda de estado, então ela corre durante o trabalho e fica parada com a sessão ociosa.
-O quadro corrente fica em `~/.claude/cache/statusline-pacman.json`.
-
-Os glifos `ᗧ ᗤ ᗣ` exigem fonte com Canadian Syllabics (Nerd Fonts, Cascadia Code PL). Se aparecerem
-como quadrado, troque `$PacmanUseUnicode = $true` para `$false` no topo do script. A largura da pista
-sai de `$PacmanTrackWidth`.
 
 **Linha 2:** três medidores, cada um com barra de 10 blocos e percentual colorido:
 
